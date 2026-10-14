@@ -1,0 +1,52 @@
+constexpr int motorPin1 = 3; 
+constexpr int motorPin2 = 9; 
+constexpr int motorPin1R = 5; 
+constexpr int motorPin2R = 6;  
+
+constexpr static int motorSpeed = 180;
+constexpr static int turnSpeed = 200;
+
+void setup() {   
+  Serial.begin(9600);
+  pinMode(motorPin1, OUTPUT);   
+  pinMode(motorPin2, OUTPUT);   
+  pinMode(motorPin1R, OUTPUT);   
+  pinMode(motorPin2R, OUTPUT); 
+}  
+
+void left() {   
+  analogWrite(motorPin1R, turnSpeed);   
+  analogWrite(motorPin2, turnSpeed); 
+}  
+
+void right() {   
+  analogWrite(motorPin1R, turnSpeed);   
+  analogWrite(motorPin2, turnSpeed); 
+}  
+
+void stop() {   
+  analogWrite(motorPin1, 0);   
+  analogWrite(motorPin2, 0);   
+  analogWrite(motorPin1R, 0);   
+  analogWrite(motorPin2R, 0); 
+}  
+
+void reverse() {   
+  analogWrite(motorPin1, motorSpeed);  
+}  
+
+void forward() {   
+  analogWrite(motorPin1R, motorSpeed);   
+  analogWrite(motorPin2R, motorSpeed); 
+}  
+
+void loop() {
+  forward();
+  delay(3100);
+  stop();
+  delay(2000);
+  left();
+  delay(700);
+  stop();
+  delay(2000);
+}
